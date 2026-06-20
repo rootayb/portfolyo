@@ -1,6 +1,8 @@
 import { neon } from '@neondatabase/serverless'
 import { posts as fallbackPosts, type BlogPost } from '@/data/posts'
 
+export type { BlogPost }
+
 type BlogPostRow = {
   id: number
   title: string

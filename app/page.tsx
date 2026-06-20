@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { ArrowRight, Brain, Code2, GraduationCap } from 'lucide-react'
 import { BlogCard } from '@/components/blog-card'
 import { ButtonLink } from '@/components/button-link'
-import { HeroScene } from '@/components/hero-scene'
+import { CodeHero } from '@/components/code-hero'
 import { ProjectCard } from '@/components/project-card'
 import { SectionHeading } from '@/components/section-heading'
 import { projects } from '@/data/projects'
@@ -57,7 +57,7 @@ export default async function HomePage() {
             </div>
           </div>
 
-          <HeroScene />
+          <CodeHero />
         </div>
       </section>
 
@@ -93,7 +93,7 @@ export default async function HomePage() {
           <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <SectionHeading
               title="Seçili işler"
-              description="Tasarım, geliştirme ve eğitim odağında kısa kapsamlı ama genişletilebilir ürün denemeleri."
+              description="Şu an odağım Specia web sitesi, yayındaki iOS uygulaması ve geliştirme aşamasındaki Android sürümü."
             />
             <Link
               className="focus-ring inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent-strong)]"

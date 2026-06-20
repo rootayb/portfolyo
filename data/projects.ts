@@ -9,27 +9,28 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: 'Eğitim Takip Arayüzü',
-    slug: 'ozel-egitim-takip-paneli',
+    title: 'Specia Web',
+    slug: 'specia-web',
     summary:
-      'Öğretmenlerin gözlem notlarını, kazanım takibini ve haftalık çıktıları sade bir akışta tutması için arayüz çalışması.',
-    tags: ['Product Design', 'Next.js', 'Eğitim'],
-    status: 'Geliştiriliyor',
-  },
-  {
-    title: 'Materyal Üretim Sistemi',
-    slug: 'ders-materyali-uretici',
-    summary:
-      'Öğrenme hedefinden kısa etkinlik, görsel destek ve çıktı dokümanı üreten modüler dijital ürün fikri.',
-    tags: ['AI', 'UX', 'Erişilebilirlik'],
-    status: 'Fikir',
-  },
-  {
-    title: 'Kişisel Yayın Altyapısı',
-    slug: 'portfolyo-blog-altyapisi',
-    summary:
-      'Tek sayfa portfolyo, blog detayları ve sade içerik yayın akışı için hazırlanmış kişisel web altyapısı.',
-    tags: ['Next.js', 'TypeScript', 'Tailwind'],
+      'specia.com.tr üzerinde çalışan web deneyimi; ürün anlatımı, erişilebilirlik ve hızlı yayın akışı için tasarlandı.',
+    tags: ['Next.js', 'Product Design', 'Web'],
     status: 'Yayında',
+    href: 'https://specia.com.tr',
+  },
+  {
+    title: 'Specia iOS',
+    slug: 'specia-ios',
+    summary:
+      'Specia ekosisteminin iOS uygulaması; mobil kullanım, sade akışlar ve gerçek kullanıcı ihtiyaçları üzerine kurulu.',
+    tags: ['iOS', 'SwiftUI', 'Mobile'],
+    status: 'Yayında',
+  },
+  {
+    title: 'Specia Android',
+    slug: 'specia-android',
+    summary:
+      'Specia için Android sürümü geliştirme aşamasında; iOS deneyimiyle tutarlı, sade ve hızlı bir mobil yapı hedefleniyor.',
+    tags: ['Android', 'Mobile', 'Geliştirme'],
+    status: 'Geliştiriliyor',
   },
 ]

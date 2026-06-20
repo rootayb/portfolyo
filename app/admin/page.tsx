@@ -9,6 +9,7 @@ import {
 } from '@/app/admin/actions'
 import { isAdminAuthenticated, isAdminConfigured } from '@/lib/admin-auth'
 import {
+  type BlogPost,
   getAllPostsForAdmin,
   isBlogDatabaseConfigured,
   slugify,
@@ -56,7 +57,19 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
   const adminConfigured = isAdminConfigured()
   const databaseConfigured = isBlogDatabaseConfigured()
   const authenticated = await isAdminAuthenticated()
-  const posts = authenticated ? await getAllPostsForAdmin() : []
+  let databaseError = ''
+  let posts: BlogPost[] = []
+
+  if (authenticated) {
+    try {
+      posts = await getAllPostsForAdmin()
+    } catch (error) {
+      databaseError =
+        error instanceof Error
+          ? error.message
+          : 'Veritabanı bağlantısı kurulamadı.'
+    }
+  }
 
   return (
     <main className="section">
@@ -116,6 +129,11 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
           </section>
         ) : (
           <section className="grid gap-8">
+            {databaseError ? (
+              <div className="rounded-2xl border border-red-200 bg-red-50 p-5 text-sm font-medium leading-7 text-red-800">
+                Blog veritabanı açılamadı: {databaseError}
+              </div>
+            ) : null}
             <div className="surface rounded-[2rem] p-6">
               <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
                 <div>

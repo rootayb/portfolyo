@@ -1,9 +1,9 @@
 export const siteProfile = {
   name: 'Alperen Yiğit Bulat',
   title: 'Tasarım, geliştirme ve eğitim',
-  headline: 'Tasarım, geliştirme ve eğitim odağında dijital işler.',
+  headline: 'Specia için tasarım, geliştirme ve eğitim odaklı ürünler.',
   summary:
-    'Özel eğitim deneyimini; sade arayüzler, web ürünleri ve öğrenme odaklı dijital çözümlerle birleştiriyorum.',
+    'specia.com.tr ve Specia iOS uygulaması yayında; Android sürümü geliştirme aşamasında. Özel eğitim deneyimini sade arayüzler ve çalışan dijital ürünlerle birleştiriyorum.',
   location: 'Türkiye',
   email: 'merhaba@alperenyigitbulat.com',
   socials: [
