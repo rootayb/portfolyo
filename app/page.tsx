@@ -1,15 +1,13 @@
 import Link from 'next/link'
 import { ArrowRight, Brain, Code2, GraduationCap } from 'lucide-react'
-import { BlogCard } from '@/components/blog-card'
 import { ButtonLink } from '@/components/button-link'
 import { CodeHero } from '@/components/code-hero'
+import { NoteCard } from '@/components/note-card'
 import { ProjectCard } from '@/components/project-card'
 import { SectionHeading } from '@/components/section-heading'
+import { notes } from '@/data/notes'
 import { projects } from '@/data/projects'
 import { siteProfile } from '@/data/site'
-import { getPublishedPosts } from '@/lib/blog-store'
-
-export const revalidate = 60
 
 const focusAreas = [
   {
@@ -19,8 +17,8 @@ const focusAreas = [
     icon: GraduationCap,
   },
   {
-    title: 'Geliştirme',
-    description: 'Next.js ve TypeScript ile küçük ama çalışan web ürünleri.',
+    title: 'Yazılım',
+    description: 'Next.js ve SwiftUI ile küçük ama çalışan kullanıcı deneyimleri.',
     icon: Code2,
   },
   {
@@ -31,10 +29,7 @@ const focusAreas = [
   },
 ]
 
-export default async function HomePage() {
-  const posts = await getPublishedPosts()
-  const featuredPosts = posts.slice(0, 2)
-
+export default function HomePage() {
   return (
     <main>
       <section className="relative overflow-hidden pb-20 pt-14 md:pb-28 md:pt-24">
@@ -51,8 +46,8 @@ export default async function HomePage() {
                 İşleri incele
                 <ArrowRight aria-hidden="true" size={18} />
               </ButtonLink>
-              <ButtonLink href="#yazilar" variant="secondary">
-                Yazıları oku
+              <ButtonLink href="#notlar" variant="secondary">
+                Notları oku
               </ButtonLink>
             </div>
           </div>
@@ -93,7 +88,7 @@ export default async function HomePage() {
           <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <SectionHeading
               title="Seçili işler"
-              description="Şu an odağım Specia web sitesi, yayındaki iOS uygulaması ve geliştirme aşamasındaki Android sürümü."
+              description="Tasarım, yazılım ve eğitim odağındaki projelerim."
             />
             <Link
               className="focus-ring inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent-strong)]"
@@ -112,15 +107,15 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="section" id="yazilar">
+      <section className="section" id="notlar">
         <div className="container grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <SectionHeading
-            title="Yazılar"
-            description="Eğitim teknolojileri, arayüz tasarımı ve hobi projeleri üzerine kısa notlar."
+            title="Notlar"
+            description="Tasarım, yazılım ve eğitim üzerine aldığım kısa mikro-öğrenim notları."
           />
           <div className="surface rounded-2xl p-6 md:p-8">
-            {featuredPosts.map(post => (
-              <BlogCard key={post.slug} post={post} />
+            {notes.map(note => (
+              <NoteCard key={note.id} note={note} />
             ))}
           </div>
         </div>

@@ -9,28 +9,28 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: 'Specia Web',
-    slug: 'specia-web',
+    title: 'Specia Eğitim Ekosistemi',
+    slug: 'specia-ekosistemi',
     summary:
-      'specia.com.tr üzerinde çalışan web deneyimi; ürün anlatımı, erişilebilirlik ve hızlı yayın akışı için tasarlandı.',
-    tags: ['Next.js', 'Product Design', 'Web'],
+      'Özel eğitim öğretmenleri ve öğrenciler için tasarlanıp geliştirilen web portalı ile iOS/Android mobil uygulamaları.',
+    tags: ['Next.js', 'SwiftUI', 'Erişilebilirlik'],
     status: 'Yayında',
     href: 'https://specia.com.tr',
   },
   {
-    title: 'Specia iOS',
-    slug: 'specia-ios',
+    title: 'Öğrenme Materyali Üreticisi',
+    slug: 'ogrenme-materyali-ureticisi',
     summary:
-      'Specia ekosisteminin iOS uygulaması; mobil kullanım, sade akışlar ve gerçek kullanıcı ihtiyaçları üzerine kurulu.',
-    tags: ['iOS', 'SwiftUI', 'Mobile'],
-    status: 'Yayında',
+      'Öğretmenlerin özel eğitim hedeflerine uygun basılı ve dijital materyalleri saniyeler içinde tasarlaması için minimal bir web aracı.',
+    tags: ['Next.js', 'Tailwind', 'UX'],
+    status: 'Fikir',
   },
   {
-    title: 'Specia Android',
-    slug: 'specia-android',
+    title: 'Açık Kaynak Tasarım Kitleri',
+    slug: 'tasarim-kitleri',
     summary:
-      'Specia için Android sürümü geliştirme aşamasında; iOS deneyimiyle tutarlı, sade ve hızlı bir mobil yapı hedefleniyor.',
-    tags: ['Android', 'Mobile', 'Geliştirme'],
+      'Erişilebilir ve sade kullanıcı arayüzleri oluşturmak için hazırlanmış şablonlar, renk paletleri ve Figma kütüphaneleri.',
+    tags: ['Figma', 'Arayüz Tasarımı'],
     status: 'Geliştiriliyor',
   },
 ]

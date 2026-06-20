@@ -3,10 +3,10 @@
 import type { CSSProperties } from 'react'
 
 const codeLines = [
-  { text: 'const focus = ["design", "development", "education"]', delay: '0s' },
-  { text: 'const product = build("Specia")', delay: '1.8s' },
-  { text: 'ship(web, ios)', delay: '3.6s' },
-  { text: 'android.status = "in development"', delay: '5.4s' },
+  { text: 'const focus = ["design", "code", "education"]', delay: '0s' },
+  { text: 'const ui = design("simple & accessible")', delay: '1.8s' },
+  { text: 'const app = buildProduct(ui)', delay: '3.6s' },
+  { text: 'teach(app) // feedback loop', delay: '5.4s' },
 ]
 
 export function CodeHero() {
@@ -18,7 +18,7 @@ export function CodeHero() {
           <span className="size-3 rounded-full bg-[#f7c948]" />
           <span className="size-3 rounded-full bg-[#2dd4bf]" />
         </div>
-        <span className="text-xs font-semibold text-white/45">specia.ts</span>
+        <span className="text-xs font-semibold text-white/45">profile.ts</span>
       </div>
 
       <pre className="min-h-[250px] overflow-hidden font-mono text-[13px] leading-7 text-white/82 md:min-h-[390px] md:text-sm md:leading-8 lg:min-h-[490px]">
@@ -35,12 +35,12 @@ export function CodeHero() {
           {'\n'}
           <span className="text-white/35">02</span>{' '}
           <span className="text-white/45">
-            {'// Specia web ve iOS yayında'}
+            {'// Sade arayüz kararları'}
           </span>
           {'\n'}
           <span className="text-white/35">03</span>{' '}
           <span className="text-white/45">
-            {'// Android geliştirme aşamasında'}
+            {'// Çalışan dijital ürünler'}
           </span>
           {'\n\n'}
           {codeLines.map(line => (
@@ -58,9 +58,9 @@ export function CodeHero() {
       </pre>
 
       <div className="mt-5 grid gap-3 border-t border-white/10 pt-5 text-xs font-semibold text-white/58 sm:grid-cols-3">
-        <span>web: specia.com.tr</span>
-        <span>ios: active</span>
-        <span>android: building</span>
+        <span>design: minimalist</span>
+        <span>code: next.js / swiftui</span>
+        <span>education: specialized</span>
       </div>
     </div>
   )
