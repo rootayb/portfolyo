@@ -1,12 +1,15 @@
 # Alperen Yiğit Bulat Portfolyo
 
-Özel eğitim öğretmeni ve hobi olarak dijital çözümler geliştiren Alperen Yiğit Bulat için hazırlanmış modern Next.js portfolyo sitesi.
+Özel eğitim öğretmeni ve hobi olarak dijital çözümler geliştiren Alperen Yiğit Bulat için hazırlanmış tek sayfa Next.js portfolyo sitesi.
 
 ## Özellikler
 
 - Next.js App Router, TypeScript ve Tailwind CSS
-- Modüler proje ve blog veri yapısı
-- Ana sayfa, proje arşivi, blog arşivi ve blog detay sayfaları
+- Tek sayfa portfolyo akışı
+- Modüler proje veri yapısı
+- Neon Postgres'e bağlanabilen blog altyapısı
+- `/admin` altında şifre korumalı blog yönetimi
+- Blog detay sayfaları
 - Instagram, GitHub ve X sosyal bağlantıları
 - Erişilebilir odak stilleri ve responsive düzen
 
@@ -19,10 +22,24 @@ npm run dev
 
 Uygulama varsayılan olarak `http://localhost:3000` adresinde çalışır.
 
+## Neon ve Admin
+
+Vercel ortam değişkenlerine aşağıdaki değerleri ekleyin:
+
+```env
+DATABASE_URL=postgresql://USER:PASSWORD@HOST.neon.tech/DB?sslmode=require
+ADMIN_PASSWORD=guclu-bir-sifre
+ADMIN_SESSION_SECRET=uzun-rastgele-bir-secret
+```
+
+Sonra `/admin` sayfasına gidip giriş yapın. Panelden veritabanı tablosunu hazırlayabilir, örnek yazıları Neon'a aktarabilir ve yeni blog yazıları ekleyebilirsiniz.
+
+`DATABASE_URL` tanımlı değilken site örnek yazılarla çalışmaya devam eder.
+
 ## İçerik Güncelleme
 
 - Projeler: `data/projects.ts`
-- Blog yazıları: `data/posts.ts`
+- Başlangıç blog yazıları: `data/posts.ts`
 - Profil ve sosyal bağlantılar: `data/site.ts`
 
-Yeni proje veya yazı eklemek için ilgili veri dosyasına yeni kayıt eklemek yeterlidir.
+Yeni proje eklemek için `data/projects.ts` dosyasına kayıt eklemek yeterlidir. Blog yazıları üretimde admin paneli üzerinden yönetilir.

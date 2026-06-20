@@ -3,7 +3,7 @@ export const siteProfile = {
   title: 'Özel eğitim öğretmeni ve dijital çözüm geliştiricisi',
   headline: 'Özel eğitimden dijital çözümlere',
   summary:
-    'Özel eğitim öğretmeni olarak insan odaklı düşünür, hobi olarak geliştirdiğim dijital ürünlerle fikirleri çalışan çözümlere dönüştürürüm.',
+    'İnsan odaklı eğitim deneyimini, çalışan dijital ürünlere dönüştüren kişisel üretim alanı.',
   location: 'Türkiye',
   email: 'merhaba@alperenyigitbulat.com',
   socials: [
@@ -24,7 +24,7 @@ export const siteProfile = {
 
 export const navigation = [
   { label: 'Hakkımda', href: '/#hakkimda' },
-  { label: 'Projeler', href: '/projeler' },
-  { label: 'Yazılar', href: '/blog' },
-  { label: 'İletişim', href: '/#iletisim' },
+  { label: 'Projeler', href: '/#projeler' },
+  { label: 'Yazılar', href: '/#yazilar' },
+  { label: 'Blog yönetimi', href: '/admin' },
 ]

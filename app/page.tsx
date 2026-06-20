@@ -4,16 +4,21 @@ import {
   BookOpen,
   Brain,
   Code2,
+  Database,
   GraduationCap,
   Layers3,
+  PenLine,
+  Sparkles,
 } from 'lucide-react'
 import { BlogCard } from '@/components/blog-card'
 import { ButtonLink } from '@/components/button-link'
 import { ProjectCard } from '@/components/project-card'
 import { SectionHeading } from '@/components/section-heading'
-import { posts } from '@/data/posts'
 import { projects } from '@/data/projects'
 import { siteProfile } from '@/data/site'
+import { getPublishedPosts, isBlogDatabaseConfigured } from '@/lib/blog-store'
+
+export const revalidate = 60
 
 const principles = [
   {
@@ -36,32 +41,37 @@ const principles = [
   },
 ]
 
-export default function HomePage() {
-  const featuredPosts = posts.slice(0, 2)
+export default async function HomePage() {
+  const posts = await getPublishedPosts()
+  const featuredPosts = posts.slice(0, 3)
+  const databaseConfigured = isBlogDatabaseConfigured()
 
   return (
     <main>
-      <section className="relative overflow-hidden pb-20 pt-16 md:pb-28 md:pt-24">
-        <div className="container grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
-          <div>
-            <h1 className="max-w-4xl text-5xl font-semibold leading-[1.02] tracking-normal text-[var(--foreground)] md:text-7xl">
+      <section className="relative overflow-hidden pb-20 pt-12 md:pb-24 md:pt-20">
+        <div className="container grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
+          <div className="max-w-5xl">
+            <p className="mb-6 text-sm font-semibold uppercase text-[var(--accent-strong)]">
+              {siteProfile.name}
+            </p>
+            <h1 className="max-w-5xl text-6xl font-semibold leading-[0.9] tracking-normal text-[var(--foreground)] md:text-8xl lg:text-[9.5rem]">
               {siteProfile.headline}
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-[var(--muted)] md:text-xl md:leading-9">
+            <p className="mt-8 max-w-3xl text-xl leading-9 text-[var(--muted)] md:text-2xl md:leading-10">
               {siteProfile.summary}
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/projeler">
+              <ButtonLink href="#projeler">
                 Projeleri incele
                 <ArrowRight aria-hidden="true" size={18} />
               </ButtonLink>
-              <ButtonLink href="/blog" variant="secondary">
+              <ButtonLink href="#yazilar" variant="secondary">
                 Yazıları oku
               </ButtonLink>
             </div>
           </div>
 
-          <div className="surface grid-pattern relative min-h-[460px] overflow-hidden rounded-[2rem] p-6">
+          <div className="surface grid-pattern relative min-h-[440px] overflow-hidden rounded-[2rem] p-6 md:min-h-[520px]">
             <div className="absolute inset-x-8 top-8 h-28 rounded-3xl bg-white/80 shadow-sm" />
             <div className="relative mt-6 rounded-3xl bg-[var(--foreground)] p-5 text-white shadow-2xl">
               <div className="flex items-center justify-between">
@@ -103,10 +113,10 @@ export default function HomePage() {
               </div>
               <div className="rounded-2xl bg-[var(--surface-soft)] p-4">
                 <p className="text-sm font-semibold text-[var(--foreground)]">
-                  Yayın akışı
+                  Neon hazır
                 </p>
                 <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
-                  Projeler, notlar ve blog yazıları tek yapıda.
+                  Blog yazıları admin panelinden veritabanına yazılabilir.
                 </p>
               </div>
             </div>
@@ -141,18 +151,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section bg-white/52">
+      <section className="section bg-white/52" id="projeler">
         <div className="container">
           <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <SectionHeading
               title="Projeler"
-              description="Yeni projeler bu veri katmanına eklenerek ana sayfada ve proje arşivinde otomatik listelenebilir."
+              description="Seçili işler tek sayfa akışında listelenir. Yeni işler veri katmanına eklenerek aynı tasarım diliyle çoğalır."
             />
             <Link
               className="focus-ring inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent-strong)]"
-              href="/projeler"
+              href="https://github.com/rootayb"
+              target="_blank"
             >
-              Tüm projeler
+              GitHub
               <ArrowRight aria-hidden="true" size={17} />
             </Link>
           </div>
@@ -164,15 +175,57 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" id="yazilar">
         <div className="container grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <SectionHeading
             title="Yazılar"
-            description="Basit blog yapısı statik veriyle başlıyor; ileride MDX, CMS veya veritabanı katmanına taşınabilecek şekilde ayrıştırıldı."
+            description="Blog yapısı Neon Postgres'e bağlanabilir. Ortam değişkenleri yoksa örnek yazılarla çalışır, bağlantı tanımlanınca admin panelinden yönetilir."
           />
           <div className="surface rounded-2xl p-6 md:p-8">
             {featuredPosts.map(post => (
               <BlogCard key={post.slug} post={post} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section bg-[var(--foreground)] text-white">
+        <div className="container grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <h2 className="text-5xl font-semibold leading-none md:text-7xl">
+              Blog yönetimi tek sayfayı besler.
+            </h2>
+            <p className="mt-6 max-w-2xl text-lg leading-9 text-white/70">
+              Admin paneli yazıları Neon Postgres üzerinde tutar. Ana sayfa son
+              yazıları çeker, blog detay sayfaları da aynı kaynaktan beslenir.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <ButtonLink href="/admin" variant="secondary">
+                Yönetim paneli
+                <PenLine aria-hidden="true" size={18} />
+              </ButtonLink>
+              <span className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/15 px-5 text-sm font-semibold text-white/70">
+                <Database aria-hidden="true" size={18} />
+                {databaseConfigured ? 'Neon bağlı' : 'Neon env bekleniyor'}
+              </span>
+            </div>
+          </div>
+          <div className="grid gap-4">
+            {[
+              'DATABASE_URL ile Neon bağlantısı',
+              'ADMIN_PASSWORD ile korumalı giriş',
+              'Yayın/taslak durumu',
+              'Slug tabanlı blog detayları',
+            ].map(item => (
+              <div
+                className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-5"
+                key={item}
+              >
+                <span className="grid size-11 place-items-center rounded-full bg-white/10 text-[var(--warm)]">
+                  <Sparkles aria-hidden="true" size={18} />
+                </span>
+                <p className="font-semibold">{item}</p>
+              </div>
             ))}
           </div>
         </div>

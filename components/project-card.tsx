@@ -6,7 +6,7 @@ export function ProjectCard({ project }: { project: Project }) {
     <article className="surface group flex h-full flex-col rounded-2xl p-6 transition hover:-translate-y-1 hover:shadow-[0_28px_80px_rgba(15,54,50,0.12)]">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent-strong)]">
+          <p className="text-xs font-semibold uppercase text-[var(--accent-strong)]">
             {project.status}
           </p>
           <h3 className="mt-3 text-xl font-semibold text-[var(--foreground)]">

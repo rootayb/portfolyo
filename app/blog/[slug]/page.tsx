@@ -2,8 +2,10 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
-import { getPostBySlug, posts } from '@/data/posts'
+import { getPostBySlug } from '@/lib/blog-store'
 import { formatDate } from '@/lib/format'
+
+export const revalidate = 60
 
 type BlogDetailPageProps = {
   params: Promise<{
@@ -11,17 +13,11 @@ type BlogDetailPageProps = {
   }>
 }
 
-export function generateStaticParams() {
-  return posts.map(post => ({
-    slug: post.slug,
-  }))
-}
-
 export async function generateMetadata({
   params,
 }: BlogDetailPageProps): Promise<Metadata> {
   const { slug } = await params
-  const post = getPostBySlug(slug)
+  const post = await getPostBySlug(slug)
 
   if (!post) {
     return {
@@ -37,7 +33,7 @@ export async function generateMetadata({
 
 export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   const { slug } = await params
-  const post = getPostBySlug(slug)
+  const post = await getPostBySlug(slug)
 
   if (!post) {
     notFound()

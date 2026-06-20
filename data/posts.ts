@@ -1,4 +1,5 @@
 export type BlogPost = {
+  id?: number
   title: string
   slug: string
   excerpt: string
@@ -6,6 +7,7 @@ export type BlogPost = {
   readingTime: string
   category: string
   content: string[]
+  published?: boolean
 }
 
 export const posts: BlogPost[] = [
