@@ -20,8 +20,7 @@ export function SiteFooter() {
             {siteProfile.name}
           </p>
           <p className="mt-2 max-w-xl text-sm leading-7 text-[var(--muted)]">
-            Özel eğitim, erişilebilirlik ve küçük dijital çözümler üzerine
-            üretmeye devam ediyorum.
+            Tasarım, geliştirme ve eğitim odağında sade dijital işler.
           </p>
         </div>
         <div className="flex items-center gap-3">

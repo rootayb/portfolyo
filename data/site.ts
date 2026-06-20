@@ -1,9 +1,9 @@
 export const siteProfile = {
   name: 'Alperen Yiğit Bulat',
-  title: 'Özel eğitim öğretmeni ve dijital çözüm geliştiricisi',
-  headline: 'Özel eğitimden dijital çözümlere',
+  title: 'Tasarım, geliştirme ve eğitim',
+  headline: 'Tasarım, geliştirme ve eğitim odağında dijital işler.',
   summary:
-    'İnsan odaklı eğitim deneyimini, çalışan dijital ürünlere dönüştüren kişisel üretim alanı.',
+    'Özel eğitim deneyimini; sade arayüzler, web ürünleri ve öğrenme odaklı dijital çözümlerle birleştiriyorum.',
   location: 'Türkiye',
   email: 'merhaba@alperenyigitbulat.com',
   socials: [
@@ -23,8 +23,8 @@ export const siteProfile = {
 }
 
 export const navigation = [
-  { label: 'Hakkımda', href: '/#hakkimda' },
-  { label: 'Projeler', href: '/#projeler' },
+  { label: 'Profil', href: '/#profil' },
+  { label: 'İşler', href: '/#isler' },
   { label: 'Yazılar', href: '/#yazilar' },
-  { label: 'Blog yönetimi', href: '/admin' },
+  { label: 'İletişim', href: '/#iletisim' },
 ]

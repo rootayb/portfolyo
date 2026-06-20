@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   },
   description:
     'Özel eğitim öğretmeni Alperen Yiğit Bulat için portfolyo, dijital çözüm projeleri ve blog yazıları.',
+  icons: {
+    icon: '/favicon.svg',
+  },
 }
 
 export default function RootLayout({

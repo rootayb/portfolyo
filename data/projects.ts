@@ -9,26 +9,26 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: 'Özel Eğitim Takip Paneli',
+    title: 'Eğitim Takip Arayüzü',
     slug: 'ozel-egitim-takip-paneli',
     summary:
-      'BEP hedeflerini, gözlem notlarını ve haftalık ilerlemeyi tek yerde tutmayı amaçlayan öğretmen odaklı bir çalışma alanı.',
-    tags: ['Next.js', 'Supabase', 'Eğitim'],
+      'Öğretmenlerin gözlem notlarını, kazanım takibini ve haftalık çıktıları sade bir akışta tutması için arayüz çalışması.',
+    tags: ['Product Design', 'Next.js', 'Eğitim'],
     status: 'Geliştiriliyor',
   },
   {
-    title: 'Ders Materyali Üretici',
+    title: 'Materyal Üretim Sistemi',
     slug: 'ders-materyali-uretici',
     summary:
-      'Öğrencinin kazanımına göre kısa etkinlik, eşleştirme ve görsel destekli çalışma sayfaları tasarlayan modüler araç.',
-    tags: ['Üretken AI', 'PDF', 'Erişilebilirlik'],
+      'Öğrenme hedefinden kısa etkinlik, görsel destek ve çıktı dokümanı üreten modüler dijital ürün fikri.',
+    tags: ['AI', 'UX', 'Erişilebilirlik'],
     status: 'Fikir',
   },
   {
-    title: 'Portfolyo ve Blog Altyapısı',
+    title: 'Kişisel Yayın Altyapısı',
     slug: 'portfolyo-blog-altyapisi',
     summary:
-      'Projeleri ve yazıları bağımsız veri modülleriyle yöneten, kolay genişletilebilir kişisel yayın sistemi.',
+      'Tek sayfa portfolyo, blog detayları ve sade içerik yayın akışı için hazırlanmış kişisel web altyapısı.',
     tags: ['Next.js', 'TypeScript', 'Tailwind'],
     status: 'Yayında',
   },

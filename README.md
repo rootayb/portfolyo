@@ -6,9 +6,10 @@
 
 - Next.js App Router, TypeScript ve Tailwind CSS
 - Tek sayfa portfolyo akışı
+- Three.js tabanlı sade hero animasyonu
 - Modüler proje veri yapısı
 - Neon Postgres'e bağlanabilen blog altyapısı
-- `/admin` altında şifre korumalı blog yönetimi
+- Public sayfadan gizlenen `/admin` blog yönetimi
 - Blog detay sayfaları
 - Instagram, GitHub ve X sosyal bağlantıları
 - Erişilebilir odak stilleri ve responsive düzen
