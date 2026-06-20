@@ -5,7 +5,7 @@ import { CodeHero } from '@/components/code-hero'
 import { NoteCard } from '@/components/note-card'
 import { ProjectCard } from '@/components/project-card'
 import { SectionHeading } from '@/components/section-heading'
-import { notes } from '@/data/notes'
+import { getNotes } from '@/lib/notes-store'
 import { projects } from '@/data/projects'
 import { siteProfile } from '@/data/site'
 
@@ -29,7 +29,8 @@ const focusAreas = [
   },
 ]
 
-export default function HomePage() {
+export default async function HomePage() {
+  const notes = await getNotes()
   return (
     <main>
       <section className="relative overflow-hidden pb-20 pt-14 md:pb-28 md:pt-24">
