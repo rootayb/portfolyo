@@ -5,11 +5,11 @@ export const siteProfile = {
   summary:
     'Öğrenme deneyimini anlayan, arayüz kararlarını önemseyen ve fikirleri çalışan dijital ürünlere dönüştüren bir üretim pratiği.',
   location: 'Türkiye',
-  email: 'merhaba@alperenyigitbulat.com',
+  email: 'alperenyigitbulat@gmail.com',
   socials: [
     {
       label: 'Instagram',
-      href: 'https://instagram.com/',
+      href: 'https://instagram.com/alperenyigitbulat',
     },
     {
       label: 'GitHub',
@@ -17,7 +17,7 @@ export const siteProfile = {
     },
     {
       label: 'X',
-      href: 'https://x.com/',
+      href: 'https://x.com/alprnygtt',
     },
   ],
 }
