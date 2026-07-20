@@ -1,122 +1,132 @@
-import Link from 'next/link'
-import { ArrowRight, Brain, Code2, GraduationCap } from 'lucide-react'
+import { ArrowRight, Brain, Code2, Github, GraduationCap } from 'lucide-react'
 import { ButtonLink } from '@/components/button-link'
 import { CodeHero } from '@/components/code-hero'
-import { NoteCard } from '@/components/note-card'
 import { ProjectCard } from '@/components/project-card'
 import { SectionHeading } from '@/components/section-heading'
-import { getNotes } from '@/lib/notes-store'
-import { projects } from '@/data/projects'
+import { TiltCard } from '@/components/tilt-card'
+import { featuredProjects, otherProjects } from '@/data/projects'
 import { siteProfile } from '@/data/site'
 
 const focusAreas = [
   {
-    title: 'Tasarım',
+    title: 'Eğitim',
     description:
-      'Sade, okunabilir ve erişilebilir arayüz kararlarıyla ürün fikrini netleştirme.',
+      'Özel eğitim pratiğinden gelen gözlem, ihtiyaç okuma ve öğrenme deneyimi tasarımı.',
     icon: GraduationCap,
   },
   {
     title: 'Yazılım',
-    description: 'Next.js ve SwiftUI ile küçük ama çalışan kullanıcı deneyimleri.',
+    description:
+      'Next.js, TypeScript ve Swift ile deterministik, açıklanabilir ve gömülebilir motorlar.',
     icon: Code2,
   },
   {
-    title: 'Eğitim',
+    title: 'Açıklanabilirlik',
     description:
-      'Özel eğitim pratiğinden gelen gözlem, ihtiyaç okuma ve öğrenme deneyimi.',
+      'Kara kutu değil; her değerlendirme ve öneri, gerekçesiyle birlikte üretilir.',
     icon: Brain,
   },
 ]
 
-export default async function HomePage() {
-  const notes = await getNotes()
+export default function HomePage() {
   return (
     <main>
-      <section className="relative overflow-hidden pb-20 pt-14 md:pb-28 md:pt-24">
-        <div className="container grid items-center gap-12 lg:grid-cols-[0.92fr_1.08fr]">
-          <div>
-            <h1 className="max-w-4xl text-5xl font-semibold leading-[0.95] tracking-normal text-[var(--foreground)] md:text-7xl lg:text-8xl">
+      {/* ---- Hero: metin + 3B kod paneli ---- */}
+      <section className="relative overflow-hidden pb-24 pt-12 md:pb-32 md:pt-20">
+        <div className="container grid items-center gap-14 lg:grid-cols-[1.02fr_0.98fr]">
+          <div className="rise">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-white/70 px-4 py-1.5 text-xs font-semibold text-[var(--muted)] backdrop-blur">
+              <span className="size-2 rounded-full bg-[var(--accent)]" />
+              {siteProfile.role}
+            </span>
+            <h1 className="mt-6 text-5xl font-semibold leading-[0.98] tracking-tight text-[var(--foreground)] md:text-6xl lg:text-7xl">
               {siteProfile.headline}
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-[var(--muted)] md:text-xl md:leading-9">
+            <p className="mt-7 max-w-xl text-lg leading-8 text-[var(--muted)] md:text-xl md:leading-9">
               {siteProfile.summary}
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="#isler">
-                İşleri incele
+              <ButtonLink href="#projeler">
+                Projeleri incele
                 <ArrowRight aria-hidden="true" size={18} />
               </ButtonLink>
-              <ButtonLink href="#notlar" variant="secondary">
-                Notları oku
+              <ButtonLink
+                href="https://github.com/rootayb"
+                target="_blank"
+                variant="secondary"
+              >
+                <Github aria-hidden="true" size={18} />
+                GitHub
               </ButtonLink>
             </div>
           </div>
 
-          <CodeHero />
+          <div className="rise" style={{ animationDelay: '0.15s' }}>
+            <CodeHero />
+          </div>
         </div>
       </section>
 
+      {/* ---- Profil / Odak alanları ---- */}
       <section className="section" id="profil">
         <div className="container">
           <SectionHeading
-            title="Üç alanın kesişiminde çalışıyorum."
-            description="Öğrenme deneyimini anlayan, arayüz kararlarını önemseyen ve fikri çalışan ürüne dönüştüren bir üretim pratiği."
+            title="Üç alanın kesişiminde üretiyorum."
+            description="Özel eğitim alan bilgisini, yazılım disiplinini ve açıklanabilir sistem tasarımını aynı işte buluşturuyorum."
           />
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="scene grid gap-5 md:grid-cols-3">
             {focusAreas.map(item => {
               const Icon = item.icon
               return (
-                <article className="surface rounded-2xl p-6" key={item.title}>
-                  <span className="grid size-12 place-items-center rounded-2xl bg-[var(--surface-soft)] text-[var(--accent-strong)]">
-                    <Icon aria-hidden="true" size={22} />
-                  </span>
-                  <h3 className="mt-6 text-lg font-semibold text-[var(--foreground)]">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
-                    {item.description}
-                  </p>
-                </article>
+                <TiltCard key={item.title} max={7}>
+                  <article className="surface preserve-3d relative h-full rounded-3xl p-7">
+                    <span className="layer-2 grid size-12 place-items-center rounded-2xl bg-[var(--surface-soft)] text-[var(--accent-strong)]">
+                      <Icon aria-hidden="true" size={22} />
+                    </span>
+                    <h3 className="layer-1 mt-6 text-lg font-semibold text-[var(--foreground)]">
+                      {item.title}
+                    </h3>
+                    <p className="layer-1 mt-3 text-sm leading-7 text-[var(--muted)]">
+                      {item.description}
+                    </p>
+                  </article>
+                </TiltCard>
               )
             })}
           </div>
         </div>
       </section>
 
-      <section className="section bg-white/52" id="isler">
+      {/* ---- Projeler ---- */}
+      <section className="section" id="projeler">
         <div className="container">
           <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <SectionHeading
-              title="Seçili işler"
-              description="Tasarım, yazılım ve eğitim odağındaki projelerim."
+              title="Projeler"
+              description="Özel eğitim için geliştirdiğim açık kaynak motorlar, modüller ve ürünler."
             />
-            <Link
+            <a
               className="focus-ring inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent-strong)]"
               href="https://github.com/rootayb"
               target="_blank"
+              rel="noreferrer"
             >
-              GitHub
+              Tümü GitHub&apos;da
               <ArrowRight aria-hidden="true" size={17} />
-            </Link>
+            </a>
           </div>
+
+          {/* Öne çıkanlar */}
           <div className="grid gap-5 md:grid-cols-3">
-            {projects.map(project => (
-              <ProjectCard key={project.slug} project={project} />
+            {featuredProjects.map(project => (
+              <ProjectCard key={project.slug} project={project} featured />
             ))}
           </div>
-        </div>
-      </section>
 
-      <section className="section" id="notlar">
-        <div className="container grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-          <SectionHeading
-            title="Notlar"
-            description="Tasarım, yazılım ve eğitim üzerine aldığım kısa mikro-öğrenim notları."
-          />
-          <div className="surface rounded-2xl p-6 md:p-8">
-            {notes.map(note => (
-              <NoteCard key={note.id} note={note} />
+          {/* Diğer projeler */}
+          <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {otherProjects.map(project => (
+              <ProjectCard key={project.slug} project={project} />
             ))}
           </div>
         </div>

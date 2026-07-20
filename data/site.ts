@@ -1,19 +1,19 @@
 export const siteProfile = {
   name: 'Alperen Yiğit Bulat',
-  title: 'Tasarım, yazılım ve eğitim',
-  headline: 'Tasarım, yazılım ve eğitim üçgeninde sade çözümler.',
+  role: 'Özel eğitim öğretmeni & geliştirici',
+  headline: 'Özel eğitimi çalışan yazılıma dönüştürüyorum.',
   summary:
-    'Öğrenme deneyimini anlayan, arayüz kararlarını önemseyen ve fikirleri çalışan dijital ürünlere dönüştüren bir üretim pratiği.',
+    'Özel eğitim pratiğinden doğan ihtiyaçları; deterministik, açıklanabilir, açık kaynak ve geliştirilebilir motorlara, modüllere ve ürünlere dönüştürüyorum.',
   location: 'Türkiye',
   email: 'alperenyigitbulat@gmail.com',
   socials: [
     {
-      label: 'Instagram',
-      href: 'https://instagram.com/alperenyigitbulat',
-    },
-    {
       label: 'GitHub',
       href: 'https://github.com/rootayb',
+    },
+    {
+      label: 'Instagram',
+      href: 'https://instagram.com/alperenyigitbulat',
     },
     {
       label: 'X',
@@ -24,7 +24,6 @@ export const siteProfile = {
 
 export const navigation = [
   { label: 'Profil', href: '/#profil' },
-  { label: 'İşler', href: '/#isler' },
-  { label: 'Yazılar', href: '/#yazilar' },
+  { label: 'Projeler', href: '/#projeler' },
   { label: 'İletişim', href: '/#iletisim' },
 ]

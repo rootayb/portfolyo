@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: '%s | Alperen Yiğit Bulat',
   },
   description:
-    'Özel eğitim öğretmeni Alperen Yiğit Bulat için portfolyo, dijital çözüm projeleri ve blog yazıları.',
+    'Özel eğitim öğretmeni ve geliştirici Alperen Yiğit Bulat: özel eğitim için geliştirdiği açık kaynak motorlar, modüller ve ürünlerden oluşan portfolyo.',
   icons: {
     icon: '/favicon.svg',
   },

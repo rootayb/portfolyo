@@ -1,18 +1,16 @@
 # Alperen Yiğit Bulat Portfolyo
 
-Özel eğitim öğretmeni ve hobi olarak dijital çözümler geliştiren Alperen Yiğit Bulat için hazırlanmış tek sayfa Next.js portfolyo sitesi.
+Özel eğitim öğretmeni ve geliştirici Alperen Yiğit Bulat için hazırlanmış tek sayfa Next.js portfolyo sitesi. Amaç, özel eğitim için geliştirilen açık kaynak motorları, modülleri ve ürünleri öne çıkarmak.
 
 ## Özellikler
 
 - Next.js App Router, TypeScript ve Tailwind CSS
-- Tek sayfa portfolyo akışı
-- Kod yazılıyor hissi veren sade hero animasyonu
-- Modüler proje veri yapısı
-- Neon Postgres'e bağlanabilen blog altyapısı
-- Public sayfadan gizlenen `/admin` blog yönetimi
-- Blog detay sayfaları
-- Instagram, GitHub ve X sosyal bağlantıları
-- Erişilebilir odak stilleri ve responsive düzen
+- Tek sayfa portfolyo akışı (Profil → Projeler → İletişim)
+- Three.js / React Three Fiber ile 3B hero sahnesi
+- İmleçle eğilen (3B tilt) derinlikli proje kartları
+- Kürate edilmiş proje verisi (GitHub projelerinin isim ve kısa açıklamaları)
+- GitHub, Instagram ve X sosyal bağlantıları
+- Erişilebilir odak stilleri, `prefers-reduced-motion` desteği ve responsive düzen
 
 ## Geliştirme
 
@@ -23,24 +21,9 @@ npm run dev
 
 Uygulama varsayılan olarak `http://localhost:3000` adresinde çalışır.
 
-## Neon ve Admin
-
-Vercel ortam değişkenlerine aşağıdaki değerleri ekleyin:
-
-```env
-DATABASE_URL=postgresql://USER:PASSWORD@HOST.neon.tech/DB?sslmode=require
-ADMIN_PASSWORD=guclu-bir-sifre
-ADMIN_SESSION_SECRET=uzun-rastgele-bir-secret
-```
-
-Sonra `/admin` sayfasına gidip giriş yapın. Panelden veritabanı tablosunu hazırlayabilir, örnek yazıları Neon'a aktarabilir ve yeni blog yazıları ekleyebilirsiniz.
-
-`DATABASE_URL` tanımlı değilken site örnek yazılarla çalışmaya devam eder.
-
 ## İçerik Güncelleme
 
-- Projeler: `data/projects.ts`
-- Başlangıç blog yazıları: `data/posts.ts`
+- Projeler: `data/projects.ts` (isim, kısa açıklama, kategori, etiketler, GitHub bağlantısı)
 - Profil ve sosyal bağlantılar: `data/site.ts`
 
-Yeni proje eklemek için `data/projects.ts` dosyasına kayıt eklemek yeterlidir. Blog yazıları üretimde admin paneli üzerinden yönetilir.
+Yeni proje eklemek için `data/projects.ts` dosyasına bir kayıt eklemek yeterlidir. `featured: true` verilen projeler vitrinin üst sırasında büyük kart olarak gösterilir.

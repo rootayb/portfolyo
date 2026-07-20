@@ -3,16 +3,22 @@
 @tailwind utilities;
 
 :root {
-  --background: #f7faf9;
-  --foreground: #13201f;
-  --muted: #60706d;
+  --background: #f5f9f8;
+  --foreground: #0c1a19;
+  --muted: #5b6b68;
   --line: #d8e4e0;
   --surface: #ffffff;
   --surface-soft: #eef7f4;
   --accent: #0d9488;
   --accent-strong: #0f766e;
-  --ink: #102a43;
+  --accent-glow: rgba(13, 148, 136, 0.32);
+  --ink: #071615;
   --warm: #f59e0b;
+
+  /* Katmanlı derinlik gölgeleri — 3D his */
+  --shadow-sm: 0 2px 8px rgba(7, 22, 21, 0.05);
+  --shadow-md: 0 18px 44px rgba(7, 22, 21, 0.1);
+  --shadow-lg: 0 40px 90px rgba(7, 22, 21, 0.16);
 }
 
 * {
@@ -27,14 +33,14 @@ body {
   margin: 0;
   background:
     radial-gradient(
-      circle at 18% 10%,
-      rgba(13, 148, 136, 0.1),
-      transparent 26rem
+      circle at 15% 0%,
+      rgba(13, 148, 136, 0.14),
+      transparent 30rem
     ),
     radial-gradient(
-      circle at 85% 20%,
-      rgba(245, 158, 11, 0.12),
-      transparent 24rem
+      circle at 88% 8%,
+      rgba(245, 158, 11, 0.1),
+      transparent 26rem
     ),
     var(--background);
   color: var(--foreground);
@@ -59,7 +65,7 @@ a {
 }
 
 .container {
-  width: min(1120px, calc(100% - 32px));
+  width: min(1160px, calc(100% - 32px));
   margin-inline: auto;
 }
 
@@ -73,44 +79,189 @@ a {
 }
 
 .section {
-  padding: 88px 0;
+  padding: 96px 0;
 }
 
 .surface {
   background: rgba(255, 255, 255, 0.82);
   border: 1px solid rgba(216, 228, 224, 0.88);
-  box-shadow: 0 24px 70px rgba(15, 54, 50, 0.08);
+  box-shadow: var(--shadow-md);
+}
+
+/* ---- 3D sahne / perspektif yardımcıları ---- */
+.scene {
+  perspective: 1200px;
+}
+
+.scene-deep {
+  perspective: 900px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* Kart içi katmanları öne çıkarmak için Z ekseninde itme */
+.layer-1 {
+  transform: translateZ(28px);
+}
+.layer-2 {
+  transform: translateZ(52px);
+}
+.layer-3 {
+  transform: translateZ(80px);
+}
+
+.tilt-card {
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition:
+    transform 0.18s ease-out,
+    box-shadow 0.25s ease-out;
+  will-change: transform;
+}
+
+.tilt-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Karta imleç yönünde hareket eden parlama */
+.tilt-glow {
+  background: radial-gradient(
+    circle at var(--gx, 50%) var(--gy, 0%),
+    rgba(13, 148, 136, 0.16),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.tilt-card:hover .tilt-glow {
+  opacity: 1;
+}
+
+/* ---- Serbest süzülen dekoratif katmanlar ---- */
+.float-slow {
+  animation: float 9s ease-in-out infinite;
+}
+.float-med {
+  animation: float 7s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) translateZ(0);
+  }
+  50% {
+    transform: translateY(-14px) translateZ(0);
+  }
+}
+
+/* ---- Giriş animasyonu: alttan yükselerek belirme ---- */
+.rise {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .grid-pattern {
   background-image:
-    linear-gradient(rgba(16, 42, 67, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(16, 42, 67, 0.06) 1px, transparent 1px);
-  background-size: 28px 28px;
+    linear-gradient(rgba(7, 22, 21, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(7, 22, 21, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
 }
 
+/* ---- 3B kod paneli / hero ---- */
+.code-scene {
+  perspective: 1500px;
+  perspective-origin: 60% 40%;
+}
+
+/* İmleçle eğilen dış katman (JS --rx/--ry set eder) */
+.code-deck {
+  transform: rotateX(var(--rx, 8deg)) rotateY(var(--ry, -14deg));
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* İçteki serbest süzülme (eğimden bağımsız) */
+.code-float {
+  animation: code-float 8s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes code-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
+/* Arkadaki hayalet katmanlar — derinlik hissi */
+.code-ghost {
+  position: absolute;
+  inset: 0;
+  border-radius: 1.75rem;
+  border: 1px solid rgba(94, 234, 212, 0.18);
+  background: linear-gradient(
+    160deg,
+    rgba(16, 42, 40, 0.9),
+    rgba(9, 24, 23, 0.9)
+  );
+}
+
+.code-panel {
+  transform: translateZ(0);
+  box-shadow:
+    0 40px 90px rgba(7, 22, 21, 0.28),
+    0 8px 20px rgba(7, 22, 21, 0.18);
+}
+
+/* Panelin önünde uçuşan rozet katmanı */
+.code-chip {
+  transform: translateZ(90px);
+  box-shadow: 0 18px 40px rgba(7, 22, 21, 0.22);
+}
+
+/* Satır satır ortaya çıkan yazım efekti */
 .typing-line {
-  animation: typing-reveal 7.2s steps(48, end) infinite;
+  display: inline-block;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+  animation: typing-reveal 8s steps(42, end) infinite;
   animation-delay: var(--typing-delay, 0s);
 }
 
 .typing-line::after {
   content: '';
   display: inline-block;
-  width: 0.55em;
-  height: 1.05em;
-  margin-left: 0.2em;
+  width: 0.5em;
+  height: 1em;
+  margin-left: 0.15em;
   background: currentColor;
-  vertical-align: -0.16em;
+  vertical-align: -0.14em;
   animation: cursor-blink 1s steps(1, end) infinite;
 }
 
 @keyframes typing-reveal {
   0%,
-  9% {
+  6% {
     max-width: 0;
   }
-  42%,
+  36%,
   100% {
     max-width: 44rem;
   }
@@ -127,8 +278,31 @@ a {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .float-slow,
+  .float-med,
+  .rise,
+  .code-float,
+  .typing-line {
+    animation: none;
+  }
+  .rise {
+    opacity: 1;
+    transform: none;
+  }
+  .tilt-card {
+    transform: none !important;
+  }
+  .typing-line {
+    max-width: none;
+  }
+  .typing-line::after {
+    display: none;
+  }
+}
+
 @media (max-width: 760px) {
   .section {
-    padding: 64px 0;
+    padding: 68px 0;
   }
 }
