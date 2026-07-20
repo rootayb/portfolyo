@@ -25,5 +25,5 @@ export const siteProfile = {
 export const navigation = [
   { label: 'Profil', href: '/#profil' },
   { label: 'Projeler', href: '/#projeler' },
-  { label: 'İletişim', href: '/#iletisim' },
+  { label: 'Yazılar', href: '/blog' },
 ]

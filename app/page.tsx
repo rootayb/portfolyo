@@ -1,8 +1,9 @@
-import { ArrowRight, Brain, Code2, Github, GraduationCap } from 'lucide-react'
+import { ArrowRight, Brain, Code2, GraduationCap } from 'lucide-react'
 import { ButtonLink } from '@/components/button-link'
 import { CodeHero } from '@/components/code-hero'
 import { ProjectCard } from '@/components/project-card'
 import { SectionHeading } from '@/components/section-heading'
+import { SocialLinks } from '@/components/social-links'
 import { TiltCard } from '@/components/tilt-card'
 import { featuredProjects, otherProjects } from '@/data/projects'
 import { siteProfile } from '@/data/site'
@@ -45,19 +46,12 @@ export default function HomePage() {
             <p className="mt-7 max-w-xl text-lg leading-8 text-[var(--muted)] md:text-xl md:leading-9">
               {siteProfile.summary}
             </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-9 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
               <ButtonLink href="#projeler">
                 Projeleri incele
                 <ArrowRight aria-hidden="true" size={18} />
               </ButtonLink>
-              <ButtonLink
-                href="https://github.com/rootayb"
-                target="_blank"
-                variant="secondary"
-              >
-                <Github aria-hidden="true" size={18} />
-                GitHub
-              </ButtonLink>
+              <SocialLinks />
             </div>
           </div>
 
