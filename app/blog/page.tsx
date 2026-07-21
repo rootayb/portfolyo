@@ -8,7 +8,7 @@ import { getPosts } from '@/lib/blog-store'
 export const metadata = {
   title: 'Yazılar',
   description:
-    'Alperen Yiğit Bulat — özel eğitim, deterministik motorlar ve yazılım üzerine yazılar.',
+    'Alperen Yiğit Bulat — özel eğitim, açık kaynak modüller ve yazılım üzerine yazılar.',
 }
 
 export default async function BlogPage() {
@@ -28,7 +28,7 @@ export default async function BlogPage() {
         <div className="mt-5">
           <SectionHeading
             title="Yazılar"
-            description="Özel eğitim, deterministik motorlar ve yazılım geliştirme üzerine notlarım."
+            description="Özel eğitim, açık kaynak modüller ve yazılım geliştirme üzerine notlarım."
           />
         </div>
 

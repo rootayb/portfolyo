@@ -3,7 +3,7 @@ export const siteProfile = {
   role: 'Özel eğitim öğretmeni & geliştirici',
   headline: 'Özel eğitimi çalışan yazılıma dönüştürüyorum.',
   summary:
-    'Özel eğitim pratiğinden doğan ihtiyaçları; deterministik, açıklanabilir, açık kaynak ve geliştirilebilir motorlara, modüllere ve ürünlere dönüştürüyorum.',
+    'Özel eğitim pratiğinden doğan ihtiyaçları; açık kaynak, geliştirilebilir ve kolayca entegre edilen modüllere ve ürünlere dönüştürüyorum — temiz kod, temiz tasarım.',
   location: 'Türkiye',
   email: 'alperenyigitbulat@gmail.com',
   socials: [

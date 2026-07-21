@@ -1,4 +1,4 @@
-export type ProjectCategory = 'Ürün' | 'Motor & Çekirdek' | 'Modül'
+export type ProjectCategory = 'Ürün' | 'Altyapı & Motorlar' | 'Modül'
 
 export type Project = {
   title: string
@@ -37,9 +37,9 @@ export const projects: Project[] = [
     title: 'Special Education Kernel (SEK)',
     slug: 'special-education-kernel',
     summary:
-      'Deterministik ve açıklanabilir özel eğitim motorları için eklenti mimarisi çekirdeği. Node, tarayıcı ve edge ortamlarında çalışır; TypeScript ve Swift sürümleri.',
+      'Özel eğitim motorlarını modüller hâlinde birbirine bağlayan altyapı. Her modül tek tek eklenip çıkarılabilir; temiz ve geliştirilebilir bir yapı. TypeScript ve Swift sürümleri.',
     tags: ['TypeScript', 'Swift', 'Plugin Mimarisi'],
-    category: 'Motor & Çekirdek',
+    category: 'Altyapı & Motorlar',
     href: 'https://github.com/rootayb/special-education-kernel-ts',
     featured: true,
   },
@@ -47,27 +47,27 @@ export const projects: Project[] = [
     title: 'Beceri Analizi Motoru',
     slug: 'task-analysis-assessment-engine',
     summary:
-      'Basamak bazlı beceri analizini deterministik ve açıklanabilir biçimde yürüten değerlendirme motoru. Herhangi bir projeye gömülebilen bağımsız kütüphane.',
+      'Basamak bazlı beceri analizini yürüten değerlendirme motoru; sonuçları her zaman tutarlı ve izlenebilir. Herhangi bir projeye entegre edilebilen bağımsız kütüphane.',
     tags: ['TypeScript', 'Swift', 'Değerlendirme'],
-    category: 'Motor & Çekirdek',
+    category: 'Altyapı & Motorlar',
     href: 'https://github.com/rootayb/task-analysis-assessment-engine-ts',
   },
   {
     title: 'Hedef Öneri Motoru',
     slug: 'goal-recommendation-engine',
     summary:
-      'Öğrencinin değerlendirme verisinden kural tabanlı, açıklanabilir eğitim hedefleri üreten öneri motoru. Kara kutu değil; her öneri gerekçesiyle döner.',
+      'Öğrencinin değerlendirme verisinden eğitim hedefleri öneren motor. Her öneriyi gerekçesiyle sunar; sonuç şeffaf ve izlenebilir.',
     tags: ['TypeScript', 'Swift', 'Kural Tabanlı'],
-    category: 'Motor & Çekirdek',
+    category: 'Altyapı & Motorlar',
     href: 'https://github.com/rootayb/goal-recommendation-engine-ts',
   },
   {
     title: 'SEK Modülleri',
     slug: 'sek-modules',
     summary:
-      'Special Education Kernel için resmi eklenti modülleri: Beceri Analizi ve Hedef Öneri adaptörlerini çekirdeğe bağlayan hazır entegrasyon katmanı.',
+      'Special Education Kernel için hazır modül entegreleri: Beceri Analizi ve Hedef Öneri parçalarını sisteme bağlayan entegrasyon katmanı.',
     tags: ['TypeScript', 'Swift', 'Eklenti'],
-    category: 'Motor & Çekirdek',
+    category: 'Altyapı & Motorlar',
     href: 'https://github.com/rootayb/sek-modules-ts',
   },
   {

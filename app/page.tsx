@@ -1,4 +1,4 @@
-import { ArrowRight, Brain, Code2, GraduationCap } from 'lucide-react'
+import { ArrowRight, Blocks, Code2, GraduationCap } from 'lucide-react'
 import { ButtonLink } from '@/components/button-link'
 import { CodeHero } from '@/components/code-hero'
 import { ProjectCard } from '@/components/project-card'
@@ -16,16 +16,16 @@ const focusAreas = [
     icon: GraduationCap,
   },
   {
-    title: 'Yazılım',
+    title: 'Temiz Kod & Tasarım',
     description:
-      'Next.js, TypeScript ve Swift ile deterministik, açıklanabilir ve gömülebilir motorlar.',
+      'Sade, okunabilir arayüzler ve düzenli, sürdürülebilir kod. Anlaşılır ve bakımı kolay.',
     icon: Code2,
   },
   {
-    title: 'Açıklanabilirlik',
+    title: 'Geliştirilebilir Modüller',
     description:
-      'Kara kutu değil; her değerlendirme ve öneri, gerekçesiyle birlikte üretilir.',
-    icon: Brain,
+      'Her ihtiyaç bağımsız bir modül; mevcut projelere kolayca entegre edilir ve zamanla birlikte gelişir.',
+    icon: Blocks,
   },
 ]
 
@@ -66,7 +66,7 @@ export default function HomePage() {
         <div className="container">
           <SectionHeading
             title="Üç alanın kesişiminde üretiyorum."
-            description="Özel eğitim alan bilgisini, yazılım disiplinini ve açıklanabilir sistem tasarımını aynı işte buluşturuyorum."
+            description="Özel eğitim alan bilgisini, temiz yazılım pratiğini ve geliştirilebilir modül tasarımını aynı işte buluşturuyorum."
           />
           <div className="scene grid gap-5 md:grid-cols-3">
             {focusAreas.map(item => {
