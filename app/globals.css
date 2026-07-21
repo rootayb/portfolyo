@@ -53,6 +53,7 @@ body {
     'Segoe UI',
     sans-serif;
   letter-spacing: 0;
+  overflow-x: clip;
 }
 
 a {
@@ -182,6 +183,14 @@ a {
 .code-scene {
   perspective: 1500px;
   perspective-origin: 60% 40%;
+  width: 100%;
+  max-width: 100%;
+}
+
+.code-deck,
+.code-float,
+.code-panel {
+  max-width: 100%;
 }
 
 /* İmleçle eğilen dış katman (JS --rx/--ry set eder) */
@@ -190,6 +199,13 @@ a {
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   transform-style: preserve-3d;
   will-change: transform;
+}
+
+/* Mobilde eğimi yumuşat — panel daha derli toplu görünür */
+@media (max-width: 640px) {
+  .code-deck {
+    transform: rotateX(var(--rx, 5deg)) rotateY(var(--ry, -8deg));
+  }
 }
 
 /* İçteki serbest süzülme (eğimden bağımsız) */

@@ -34,19 +34,19 @@ export default function HomePage() {
     <main>
       {/* ---- Hero: metin + 3B kod paneli ---- */}
       <section className="relative overflow-hidden pb-24 pt-12 md:pb-32 md:pt-20">
-        <div className="container grid items-center gap-14 lg:grid-cols-[1.02fr_0.98fr]">
-          <div className="rise">
+        <div className="container grid items-center gap-12 md:gap-14 lg:grid-cols-[1.02fr_0.98fr]">
+          <div className="rise min-w-0">
             <span className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-white/70 px-4 py-1.5 text-xs font-semibold text-[var(--muted)] backdrop-blur">
               <span className="size-2 rounded-full bg-[var(--accent)]" />
               {siteProfile.role}
             </span>
-            <h1 className="mt-6 text-5xl font-semibold leading-[0.98] tracking-tight text-[var(--foreground)] md:text-6xl lg:text-7xl">
+            <h1 className="mt-6 text-4xl font-semibold leading-[1.03] tracking-tight text-[var(--foreground)] sm:text-5xl sm:leading-[0.98] md:text-6xl lg:text-7xl">
               {siteProfile.headline}
             </h1>
-            <p className="mt-7 max-w-xl text-lg leading-8 text-[var(--muted)] md:text-xl md:leading-9">
+            <p className="mt-6 max-w-xl text-base leading-7 text-[var(--muted)] sm:text-lg sm:leading-8 md:text-xl md:leading-9">
               {siteProfile.summary}
             </p>
-            <div className="mt-9 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
+            <div className="mt-8 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
               <ButtonLink href="#projeler">
                 Projeleri incele
                 <ArrowRight aria-hidden="true" size={18} />
@@ -55,7 +55,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="rise" style={{ animationDelay: '0.15s' }}>
+          <div className="rise min-w-0" style={{ animationDelay: '0.15s' }}>
             <CodeHero />
           </div>
         </div>
